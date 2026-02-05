@@ -1,150 +1,211 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P10 Michał Potapczuk – Usługi Stoczniowe</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #222;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>P10 Michał Potapczuk – Usługi Stoczniowe</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1581091870622-1e7e4c6c3b1b?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat fixed;
+      color: #222;
+    }
 
-        header {
-            background-color: #0a2a43;
-            color: white;
-            padding: 20px 40px;
-            text-align: center;
-        }
+    header {
+      background-color: rgba(10, 42, 67, 0.9);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        nav {
-            background-color: #123a57;
-            padding: 10px 0;
-            text-align: center;
-        }
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      border: 2px solid white;
+      padding: 5px 12px;
+    }
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    nav a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-        .hero {
-            background: url('https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-            height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-shadow: 2px 2px 5px black;
-            font-size: 32px;
-            font-weight: bold;
-        }
+    .lang-switch {
+      margin-left: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-        section {
-            padding: 40px;
-            max-width: 1000px;
-            margin: auto;
-        }
+    .hero {
+      background-color: rgba(18, 58, 87, 0.85);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+    }
 
-        h2 {
-            color: #0a2a43;
-        }
+    section {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
 
-        .services-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+    h2 {
+      color: #0a2a43;
+    }
 
-        .service-box {
-            background: white;
-            padding: 20px;
-            border-left: 5px solid #0a2a43;
-            box-shadow: 0 0 5px rgba(0,0,0,0.1);
-        }
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-        footer {
-            background-color: #0a2a43;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-    </style>
+    .service-box {
+      background: white;
+      padding: 20px;
+      border-left: 5px solid #0a2a43;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-block {
+      line-height: 1.7;
+    }
+
+    footer {
+      background-color: rgba(10, 42, 67, 0.9);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+
+  <script>
+    function changeLang(lang) {
+      document.querySelectorAll("[data-pl]").forEach(el => {
+        el.style.display = lang === "pl" ? "block" : "none";
+      });
+      document.querySelectorAll("[data-en]").forEach(el => {
+        el.style.display = lang === "en" ? "block" : "none";
+      });
+    }
+  </script>
 </head>
-<body>
+
+<body onload="changeLang('pl')">
 
 <header>
-    <h1>P10 Michał Potapczuk</h1>
-    <p>Profesjonalne Usługi Stoczniowe</p>
+  <div class="logo">P10</div>
+  <nav>
+    <a href="#uslugi">Usługi / Services</a>
+    <a href="#ofirmie">O firmie / About</a>
+    <a href="#kontakt">Kontakt / Contact</a>
+    <span class="lang-switch" onclick="changeLang('pl')">PL</span> |
+    <span class="lang-switch" onclick="changeLang('en')">EN</span>
+  </nav>
 </header>
 
-<nav>
-    <a href="#uslugi">Usługi</a>
-    <a href="#ofirmie">O firmie</a>
-    <a href="#kontakt">Kontakt</a>
-</nav>
-
-<div class="hero">
-    Usługi stoczniowe na najwyższym poziomie
-</div>
+<div class="hero" data-pl>Profesjonalne Usługi Stoczniowe</div>
+<div class="hero" data-en style="display:none;">Professional Shipyard Services</div>
 
 <section id="uslugi">
-    <h2>Usługi</h2>
-    <div class="services-list">
-        <div class="service-box">
-            <h3>Remonty i naprawy statków</h3>
-            <p>Kompleksowe prace remontowe, naprawy konstrukcji oraz wyposażenia jednostek pływających.</p>
-        </div>
-        <div class="service-box">
-            <h3>Budowa sekcji</h3>
-            <p>Wykonywanie i montaż sekcji kadłubowych zgodnie z dokumentacją techniczną.</p>
-        </div>
-        <div class="service-box">
-            <h3>Prace ślusarskie</h3>
-            <p>Precyzyjne prace ślusarskie na elementach stalowych i okrętowych.</p>
-        </div>
-        <div class="service-box">
-            <h3>Montaż konstrukcji stalowych</h3>
-            <p>Montaż, spawanie i dopasowanie konstrukcji stalowych w stoczni i na jednostkach.</p>
-        </div>
-        <div class="service-box">
-            <h3>Montaż wyposażenia okrętowego</h3>
-            <p>Instalacja wyposażenia pokładowego, technicznego i specjalistycznego.</p>
-        </div>
+  <h2 data-pl>Usługi</h2>
+  <h2 data-en style="display:none;">Services</h2>
+
+  <div class="services-list">
+    <div class="service-box">
+      <h3 data-pl>Remonty i naprawy statków</h3>
+      <h3 data-en style="display:none;">Ship repairs and maintenance</h3>
+      <p data-pl>Kompleksowe prace remontowe i naprawcze jednostek pływających.</p>
+      <p data-en style="display:none;">Comprehensive repair and maintenance of vessels.</p>
     </div>
+
+    <div class="service-box">
+      <h3 data-pl>Budowa sekcji</h3>
+      <h3 data-en style="display:none;">Section construction</h3>
+      <p data-pl>Wykonywanie i montaż sekcji kadłubowych zgodnie z dokumentacją.</p>
+      <p data-en style="display:none;">Fabrication and installation of hull sections according to documentation.</p>
+    </div>
+
+    <div class="service-box">
+      <h3 data-pl>Prace ślusarskie</h3>
+      <h3 data-en style="display:none;">Metalworking</h3>
+      <p data-pl>Precyzyjne prace ślusarskie na elementach stalowych i okrętowych.</p>
+      <p data-en style="display:none;">Precision metalworking on steel and marine components.</p>
+    </div>
+
+    <div class="service-box">
+      <h3 data-pl>Montaż konstrukcji stalowych</h3>
+      <h3 data-en style="display:none;">Steel structure assembly</h3>
+      <p data-pl>Montaż i dopasowanie konstrukcji stalowych w stoczni i na statkach.</p>
+      <p data-en style="display:none;">Assembly and fitting of steel structures in shipyards and onboard vessels.</p>
+    </div>
+
+    <div class="service-box">
+      <h3 data-pl>Montaż wyposażenia okrętowego</h3>
+      <h3 data-en style="display:none;">Marine equipment installation</h3>
+      <p data-pl>Instalacja wyposażenia pokładowego i technicznego w Polsce i na świecie.</p>
+      <p data-en style="display:none;">Installation of deck and technical equipment in Poland and worldwide.</p>
+    </div>
+  </div>
 </section>
 
 <section id="ofirmie">
-    <h2>O firmie</h2>
-    <p>
-        Firma <strong>P10 Michał Potapczuk</strong> świadczy profesjonalne usługi stoczniowe 
-        na terenie Trójmiasta i całej Polski. Specjalizujemy się w pracach remontowych, 
-        montażowych oraz konstrukcyjnych na jednostkach pływających i obiektach przemysłowych.
-    </p>
-    <p>
-        Stawiamy na jakość, terminowość oraz bezpieczeństwo pracy. 
-        Posiadamy doświadczenie zdobyte w największych polskich stoczniach.
-    </p>
+  <h2 data-pl>O firmie</h2>
+  <h2 data-en style="display:none;">About the company</h2>
+
+  <p data-pl>
+    Firma <strong>P10 Michał Potapczuk</strong> świadczy profesjonalne usługi stoczniowe w Polsce i na świecie.
+    Specjalizujemy się w remontach statków, budowie sekcji, pracach ślusarskich oraz montażu konstrukcji i wyposażenia okrętowego.
+  </p>
+
+  <p data-en style="display:none;">
+    <strong>P10 Michał Potapczuk</strong> provides professional shipyard services in Poland and worldwide.
+    We specialize in ship repairs, section construction, metalworking, and installation of steel structures and marine equipment.
+  </p>
 </section>
 
 <section id="kontakt">
-    <h2>Kontakt</h2>
-    <p><strong>Telefon:</strong> +48 000 000 000</p>
-    <p><strong>E-mail:</strong> kontakt@p10-stoczniowe.pl</p>
-    <p><strong>Lokalizacja:</strong> Gdańsk / Trójmiasto</p>
+  <h2 data-pl>Kontakt</h2>
+  <h2 data-en style="display:none;">Contact</h2>
+
+  <div class="contact-block">
+    <p>
+      <strong>E-mail:</strong>
+      <a href="mailto:P10.Uslugi.stoczniowe@o2.pl">P10.Uslugi.stoczniowe@o2.pl</a>
+    </p>
+
+    <p data-pl><strong>Adres:</strong> ul. Jabłońskiego 6/17, 80‑766 Gdańsk</p>
+    <p data-en style="display:none;"><strong>Address:</strong> 6/17 Jabłońskiego Street, 80‑766 Gdańsk, Poland</p>
+
+    <p data-pl><strong>NIP:</strong> 5832478938</p>
+    <p data-en style="display:none;"><strong>Tax ID (NIP):</strong> 5832478938</p>
+
+    <p data-pl><strong>REGON:</strong> 192500400</p>
+    <p data-en style="display:none;"><strong>Company ID (REGON):</strong> 192500400</p>
+  </div>
 </section>
 
 <footer>
-    © 2026 P10 Michał Potapczuk – Usługi Stoczniowe
+  © 2026 P10 Michał Potapczuk – Usługi Stoczniowe
+</footer>
+
+</body>
+</html>
 </footer>
 
 </body>
